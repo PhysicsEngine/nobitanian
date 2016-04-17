@@ -1,4 +1,4 @@
 rootProject.name = 'nobitanian'
 
-include 'api'
 include 'line-bot-sdk-java'
+include 'api'
