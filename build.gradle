@@ -4,8 +4,10 @@ buildscript {
     }
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
+        classpath('com.github.jengelman.gradle.plugins:shadow:1.2.3')
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
@@ -13,6 +15,7 @@ buildscript {
 apply plugin: 'idea'
 apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = 1.8
 
@@ -107,4 +110,12 @@ task stage {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.11'
+}
+
+project(':api') {
+    apply plugin: 'com.github.johnrengelman.shadow'
+}
+
+task app(dependsOn: ':api:shadowJar') << {
+    println "> executable jar is assembled at ${project('api').buildDir}/libs/api-${project.version}-all.jar"
 }
