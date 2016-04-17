@@ -14,10 +14,10 @@ import java.util.List;
 @RestController
 public class NobitaController {
 
-
     @RequestMapping(value = "/v1/api/shifts", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void postShift(@Valid @RequestBody List<Shift> shifts, BindingResult result) {
+
     }
 
 }
