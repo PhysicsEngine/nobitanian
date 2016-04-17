@@ -1,1 +1,1 @@
-web: ./gradlew runBoot
+web: ./gradlew bootRun
