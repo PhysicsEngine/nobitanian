@@ -1,4 +1,4 @@
-package com.nobita;
+package com.nobita.application;
 
 import com.nobita.domain.Shift;
 import org.springframework.http.HttpStatus;

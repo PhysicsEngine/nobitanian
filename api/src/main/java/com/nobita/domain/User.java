@@ -1,5 +1,6 @@
 package com.nobita.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,7 +22,8 @@ public class User {
 
     @Id
     @GeneratedValue
-    private String id;
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
 
     @NotNull
     @Size(min = 1, max = 16)
@@ -30,13 +32,13 @@ public class User {
     @NotNull
     private Role role;
 
-    public User(String id, String displayName, Role role) {
+    public User(Long id, String displayName, Role role) {
         this.id = id;
         this.displayName = displayName;
         this.role = role;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
